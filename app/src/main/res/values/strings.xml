@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Smart Mail for Blinds</string>
+
+
+
+
+    <!-- default model/voice -->
+    <string name="modelDefault">en-US_BroadbandModel</string>
+    <string name="voiceDefault">en-US_MichaelVoice</string>
+
+    <!-- STT credentials -->
+    <string name="STTUsername">&lt;83140af7-52cd-46da-940a-e6bb1f01c416&gt;</string>
+    <string name="STTPassword">&lt;X8EZn2TQCEBd&gt;</string>
+
+    <!-- TTS credentials -->
+    <string name="TTSUsername">&lt;username&gt;</string>
+    <string name="TTSPassword">&lt;password&gt;</string>
+
+    <!-- for credentials validation only -->
+    <string name="defaultUsername">&lt;username&gt;</string>
+    <string name="defaultPassword">&lt;password&gt;</string>
+
+    <string name="defaultTokenFactory">&lt;token-factory-url&gt;</string>
+    <string name="service_url">https://stream.watsonplatform.net/speech-to-text/api</string>
+
+
+
+    <string name="sttTitle">IBM Speech to Text</string>
+    <string name="sttInstructions">To get started choose an audio model based on the language you will be speaking. Then press Record to transcribe audio.</string>
+    <string name="ttsTitle">IBM Text to Speech</string>
+    <string name="ttsInstructions">To get started choose a voice that matches the language of the text you will enter below. Enter text and press Speak to hear the results.</string>
+
+
+
+</resources>
