@@ -30,19 +30,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Vector;
 
 import static android.content.ContentValues.TAG;
 
-public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
+public class SendMailActivity extends AppCompatActivity implements ISpeechDelegate{
     // session recognition results
     private static String mRecognitionResults = "";
 
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.sendmail_activity);
         mHandler = new Handler();
 
         setText();
@@ -68,13 +65,13 @@ public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
 
         if (jsonModels == null) {
            (new STTCommands()).execute();
-            //jsonModels = new STTCommands().doInBackground();
+           // jsonModels = new STTCommands().doInBackground();
             if (jsonModels == null) {
                 displayResult("Please, check internet connection.");
                 //return mView;
             }
         }
-
+       /* addItemsOnSpinnerModels();*/
         displayStatus("please, press the button to start speaking");
 
         Button buttonRecord = (Button)findViewById(R.id.buttonRecord);
@@ -301,17 +298,24 @@ public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
         }
     }
 
-    public static class STTCommands extends AsyncTask<Void, Void, JSONObject> {
+    public  class STTCommands extends AsyncTask<Void, Void, JSONObject> {
 
         protected JSONObject doInBackground(Void... none) {
-
+            jsonModels=SpeechToText.sharedInstance().getModels();
+            addItemsOnSpinnerModels();
             return SpeechToText.sharedInstance().getModels();
         }
 
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-           jsonModels=jsonObject;
+//            if(jsonModels!=null){
+//                if(jsonModels.length()>0){
+//                    jsonModels=null;
+//                }
+//            }
+//           jsonModels=jsonObject;
+
         }
     }
 
@@ -351,12 +355,15 @@ public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
     }
     protected void addItemsOnSpinnerModels() {
 
-        Spinner spinner = (Spinner)findViewById(R.id.spinnerModels);
+        final Spinner spinner = (Spinner)findViewById(R.id.spinnerModels);
         int iIndexDefault = 0;
 
         JSONObject obj = jsonModels;
         ItemModel [] items = null;
         try {
+            if(obj==null){
+                return;
+            }
             JSONArray models = obj.getJSONArray("models");
 
             // count the number of Broadband models (narrowband models will be ignored since they are for telephony data)
@@ -380,9 +387,18 @@ public class MainActivity extends AppCompatActivity implements ISpeechDelegate{
         }
 
         if (items != null) {
-            ArrayAdapter<ItemModel> spinnerArrayAdapter = new ArrayAdapter<ItemModel>(getApplicationContext(), android.R.layout.simple_spinner_item, items);
-            spinner.setAdapter(spinnerArrayAdapter);
-            spinner.setSelection(iIndexDefault);
+            final ItemModel[] data=items;
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    ArrayAdapter<ItemModel> spinnerArrayAdapter = new ArrayAdapter<ItemModel>(getApplicationContext(), android.R.layout.simple_spinner_item, data);
+                    spinner.setAdapter(spinnerArrayAdapter);
+                    spinner.setSelection(0);
+                }
+            });
+
+
+
         }
     }
 

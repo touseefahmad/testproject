@@ -3,7 +3,7 @@
     <item><layer-list>
         <item>
             <shape>
-                <gradient android:angle="90" android:endColor="#ffffff" android:startColor="#ffffff" android:type="linear" />
+                <gradient android:angle="90" android:endColor="#a2a2a2" android:startColor="#a2a2a2" android:type="linear" />
                 <stroke android:width="2dp" android:color="#c7c7c7"/>
                 <corners android:radius="0dp" />
                 <padding android:bottom="3dp" android:left="3dp" android:right="3dp" android:top="3dp" />
