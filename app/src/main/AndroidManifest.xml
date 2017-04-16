@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
 
     <application
@@ -48,6 +49,14 @@
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".RetrieveMailsFromGmail"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ComposeMailUsingGmail"
+            android:screenOrientation="portrait">
+        </activity>
+
+
     </application>
 
 </manifest>

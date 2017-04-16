@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
@@ -7,12 +7,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chooser Activity"
+        android:layout_alignParentTop="true"
         android:background="#00d2ff"/>
     <ListView
         android:id="@+id/lvMails"
+        android:layout_above="@+id/btnNextMails"
+        android:layout_below="@+id/btnCallChoosser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp">
     </ListView>
+    <Button
+        android:id="@+id/btnNextMails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="More Emails"
+        android:layout_alignParentBottom="true"
+        android:background="#00d2ff"/>
 
-</LinearLayout>
+</RelativeLayout>

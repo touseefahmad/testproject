@@ -83,7 +83,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if(v.getId()==R.id.btnLogin){
             //call login service here
-            loginUser();
+            CallRetrieveActivity();
+            //loginUser();
 
         }
 
@@ -196,7 +197,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.putString(Constants.email, email);// Storing string
                             editor.putString(Constants.token, auth_token); // Storing integer
                             editor.commit();
-                            CallRetrieveActivity();
+                            //CallRetrieveActivity();
 
                         }else{
                             Toast.makeText(getApplicationContext(),"Email or Password is incorrect",Toast.LENGTH_SHORT).show();
@@ -318,7 +319,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void CallRetrieveActivity(){
-        Intent intent=new Intent(LoginActivity.this,RetrieveMailsActivity.class);
+        Intent intent=new Intent(LoginActivity.this,RetrieveMailsFromGmail.class);
         startActivity(intent);
     }
 }

@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        configurations.all {
+            resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+        }
     }
     buildTypes {
         release {
@@ -29,8 +32,22 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile(name: 'speech-android-wrapper', ext: 'aar')
     compile 'org.apache.httpcomponents:httpclient:4.5'
-    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'com.github.erd:android-volley:1.0.0'
     compile project(':gson-2.2.4')
+    compile 'com.google.android.gms:play-services-auth:10.2.1'
+    compile 'pub.devrel:easypermissions:0.2.1'
+    compile('com.google.api-client:google-api-client-android:1.22.0') {
+        exclude module: 'httpcore'
+        exclude module: 'httpclient'
+    }
+    compile('com.google.apis:google-api-services-gmail:v1-rev63-1.22.0') {
+
+        exclude module: 'httpcore'
+        exclude module: 'httpclient'
+    }
+//    compile  'javax.mail:javax.mail-api:1.5.3'
+    compile 'com.sun.mail:android-mail:1.5.5'
+    compile 'com.sun.mail:android-activation:1.5.5'
 }
 repositories{
     flatDir{

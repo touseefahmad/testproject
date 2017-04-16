@@ -51,6 +51,7 @@ public class ReadMailActivity extends AppCompatActivity{
     public Context mContext = null;
     public static JSONObject jsonVoices = null;
     private Handler mHandler = null;
+    String strTo,strFrom,strSubject,strSnipet;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,16 +59,21 @@ public class ReadMailActivity extends AppCompatActivity{
 
 
         setContentView(R.layout.readmail_activity);
-        model=(EmailModel) getIntent().getSerializableExtra("model");
+
+        strTo= getIntent().getStringExtra("TO");//.getSerializableExtra("model");
+        strFrom=getIntent().getStringExtra("FROM");
+        strSubject=getIntent().getStringExtra("Subject");
+        strSnipet=getIntent().getStringExtra("BODY");
+
         tvMailFromR=(TextView)findViewById(R.id.tvMailFromR);
         tvMailToR=(TextView)findViewById(R.id.tvMailToR);
         tvSubjectR=(TextView)findViewById(R.id.tvSubjectR);
         tvContentR=(TextView)findViewById(R.id.tvContentR);
 
-        tvMailToR.setText(model.getEmailTo());
-        tvMailFromR.setText(model.getEmailFrom());
-        tvContentR.setText(model.getContent());
-        tvSubjectR.setText(model.getSubject());
+        tvMailToR.setText(strTo);
+        tvMailFromR.setText(strFrom);
+        tvContentR.setText(strSnipet);
+        tvSubjectR.setText(strSubject);
         btnPlay=(Button)findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override

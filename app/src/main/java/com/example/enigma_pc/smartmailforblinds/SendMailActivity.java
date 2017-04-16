@@ -1,5 +1,6 @@
 package com.example.enigma_pc.smartmailforblinds;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -42,6 +43,7 @@ import static android.content.ContentValues.TAG;
 public class SendMailActivity extends AppCompatActivity implements ISpeechDelegate{
     // session recognition results
     private static String mRecognitionResults = "";
+    String strMailBody;
 
     private enum ConnectionState {
         IDLE, CONNECTING, CONNECTED
@@ -134,6 +136,14 @@ public class SendMailActivity extends AppCompatActivity implements ISpeechDelega
         displayStatus("connection closed");
         setButtonLabel(R.id.buttonRecord, "Record");
         mState = ConnectionState.IDLE;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(SendMailActivity.this,ComposeMailUsingGmail.class);
+                intent.putExtra("Body",strMailBody);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -218,6 +228,7 @@ public class SendMailActivity extends AppCompatActivity implements ISpeechDelega
             public void run() {
                 TextView textResult = (TextView)findViewById(R.id.textResult);
                 textResult.setText(result);
+                strMailBody=textResult.getText().toString();
             }
         };
 

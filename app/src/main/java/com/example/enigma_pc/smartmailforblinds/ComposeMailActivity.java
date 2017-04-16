@@ -8,6 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.api.client.util.Base64;
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.Message;
+
+import java.io.IOException;
+
+
 /**
  * Created by enigma-pc on 3/1/2017.
  */
@@ -35,4 +42,13 @@ public class ComposeMailActivity extends AppCompatActivity implements View.OnCli
             //call webservice
         }
     }
+
+
+
+
+
+
 }
+
+
+
