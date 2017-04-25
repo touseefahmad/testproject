@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.RecoverySystem;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -54,6 +55,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+        startActivity(intent);
 
         etLoginEmailId=(EditText)findViewById(R.id.etLoginEmailId);
         etLoginPassword=(EditText)findViewById(R.id.etLoginPassword);
@@ -83,8 +86,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if(v.getId()==R.id.btnLogin){
             //call login service here
-            CallRetrieveActivity();
-            //loginUser();
+           // CallRetrieveActivity();
+            loginUser();
 
         }
 
@@ -197,7 +200,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.putString(Constants.email, email);// Storing string
                             editor.putString(Constants.token, auth_token); // Storing integer
                             editor.commit();
-                            //CallRetrieveActivity();
+                            CallRetrieveActivity();
 
                         }else{
                             Toast.makeText(getApplicationContext(),"Email or Password is incorrect",Toast.LENGTH_SHORT).show();
@@ -319,7 +322,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void CallRetrieveActivity(){
-        Intent intent=new Intent(LoginActivity.this,RetrieveMailsFromGmail.class);
+        Intent intent=new Intent(LoginActivity.this,ChooserActivity.class);
         startActivity(intent);
     }
 }

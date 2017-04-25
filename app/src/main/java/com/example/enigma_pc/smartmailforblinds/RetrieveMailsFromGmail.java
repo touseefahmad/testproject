@@ -158,6 +158,7 @@ public class RetrieveMailsFromGmail extends Activity implements EasyPermissions.
         lvMails.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                isCancled=true;
                 Message model= emailsList.get(position);
                 Intent intent=new Intent(RetrieveMailsFromGmail.this,ReadMailActivity.class);
                 intent.putExtra("TO",model.getPayload().getHeaders().get(0).getValue());
@@ -166,6 +167,7 @@ public class RetrieveMailsFromGmail extends Activity implements EasyPermissions.
                 intent.putExtra("BODY",model.getSnippet());
 
                 startActivity(intent);
+                RetrieveMailsFromGmail.this.finish();
             }
         });
 

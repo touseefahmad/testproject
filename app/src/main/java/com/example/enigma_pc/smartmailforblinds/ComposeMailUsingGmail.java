@@ -65,6 +65,8 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class ComposeMailUsingGmail extends Activity
         implements EasyPermissions.PermissionCallbacks {
+    String emailOne="sara.shahzad54@gmail.com";
+    String emailTwo="touseefahmad788@gmail.com";
     GoogleAccountCredential mCredential;
     /*private TextView mOutputText;
     private Button mCallApiButton;*/
@@ -424,6 +426,7 @@ public class ComposeMailUsingGmail extends Activity
             email.setSubject(subject);
             email.setText(bodyText);
             return email;
+
         }
         public  Message sendMessage(Gmail service,
                                           String userId
@@ -431,7 +434,7 @@ public class ComposeMailUsingGmail extends Activity
                 throws MessagingException, IOException {
 
 
-            Message message = createMessageWithEmail(createEmail(etSendTo.getText().toString(),"touseefahmad88@gmail.com","Smart Mail",strBody));
+            Message message = createMessageWithEmail(createEmail(etSendTo.getText().toString(),"sara.shahzad54@gmail.com","Smart Mail",strBody));
             message = service.users().messages().send(userId, message).execute();
 
             System.out.println("Message id: " + message.getId());

@@ -1,6 +1,7 @@
 package com.example.enigma_pc.smartmailforblinds;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.enigma_pc.smartmailforblinds.Response.EmailModel;
 import com.ibm.watson.developer_cloud.android.speech_common.v1.TokenProvider;
+import com.ibm.watson.developer_cloud.android.text_to_speech.v1.TTSUtility;
 import com.ibm.watson.developer_cloud.android.text_to_speech.v1.TextToSpeech;
 
 import org.apache.commons.io.IOUtils;
@@ -34,6 +36,8 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.content.ContentValues.TAG;
 
@@ -151,9 +155,21 @@ public class ReadMailActivity extends AppCompatActivity{
 
         //TextToSpeech.sharedInstance().setVoice(fragmentTabTTS.getSelectedVoice());
         String voice=getSelectedVoice();
-        TextToSpeech.sharedInstance().setVoice("en-US_AllisonVoice");
+       // TextToSpeech.sharedInstance().setVoice("en-US_AllisonVoice");
+        TextToSpeech.sharedInstance().setVoice(voice);
+        String c="mail from "+ tvMailFromR.getText().toString() +" and subject is "+tvSubjectR.getText().toString()+" mail content is "+tvContentR.getText().toString();// "hjdg$h&jk8^i0ssh6";
+        Pattern pt = Pattern.compile("[^a-zA-Z0-9_.-]");
+        Matcher match= pt.matcher(c);
+        while(match.find())
+        {
+            String s= match.group();
+            c=c.replaceAll("\\"+s, "");
+        }
+
         //Call the sdk function
-        TextToSpeech.sharedInstance().synthesize("mail from "+ tvMailFromR.getText().toString() +" and subject is "+tvSubjectR.getText().toString()+" mail content is "+tvContentR.getText().toString());
+        TextToSpeech.sharedInstance().synthesize(c);
+
+
     }
 
 
@@ -291,6 +307,14 @@ public class ReadMailActivity extends AppCompatActivity{
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(ReadMailActivity.this,RetrieveMailsFromGmail.class);
+        startActivity(intent);
+        ReadMailActivity.this.finish();
+       // super.onBackPressed();
     }
 
     // return the selected voice
