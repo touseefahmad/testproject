@@ -48,6 +48,12 @@ dependencies {
 //    compile  'javax.mail:javax.mail-api:1.5.3'
     compile 'com.sun.mail:android-mail:1.5.5'
     compile 'com.sun.mail:android-activation:1.5.5'
+    compile 'me.zhanghai.android.patternlock:library:2.1.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    // Optional, for RxJava2 adapter
+    compile 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }
 repositories{
     flatDir{

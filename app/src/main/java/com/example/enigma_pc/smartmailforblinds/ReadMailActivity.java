@@ -56,6 +56,7 @@ public class ReadMailActivity extends AppCompatActivity{
     public static JSONObject jsonVoices = null;
     private Handler mHandler = null;
     String strTo,strFrom,strSubject,strSnipet;
+    boolean isBackPressed=false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -167,7 +168,12 @@ public class ReadMailActivity extends AppCompatActivity{
         }
 
         //Call the sdk function
+        if(!isBackPressed){
         TextToSpeech.sharedInstance().synthesize(c);
+        }else if(isBackPressed){
+            isBackPressed=false;
+            TextToSpeech.sharedInstance().synthesize("Stopping");
+        }
 
 
     }
@@ -311,6 +317,15 @@ public class ReadMailActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
+        isBackPressed=true;
+        try {
+            playTTS();
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+
+
         Intent intent=new Intent(ReadMailActivity.this,RetrieveMailsFromGmail.class);
         startActivity(intent);
         ReadMailActivity.this.finish();

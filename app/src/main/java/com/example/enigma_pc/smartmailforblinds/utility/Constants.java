@@ -10,4 +10,5 @@ public  class Constants {
     public static final String isLoggedIn="login_status";
     public static final String name="name";
     public static final String email="email";
+    public static final String pattern="pattern";
 }

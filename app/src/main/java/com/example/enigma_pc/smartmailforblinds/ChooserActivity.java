@@ -44,7 +44,7 @@ public class ChooserActivity extends AppCompatActivity implements View.OnClickLi
         startActivity(intentS);
     }
     private void retrieveMail(){
-        Intent intentR = new Intent(ChooserActivity.this,RetrieveMailsActivity.class);
+        Intent intentR = new Intent(ChooserActivity.this,RetrieveMailsFromGmail.class);
         startActivity(intentR);
     }
 }

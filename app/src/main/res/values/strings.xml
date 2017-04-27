@@ -11,13 +11,13 @@
     <!-- STT credentials -->
     <!--<string name="STTUsername">&lt;83140af7-52cd-46da-940a-e6bb1f01c416&gt;</string>-->
     <!--<string name="STTPassword">&lt;X8EZn2TQCEBd&gt;</string>-->
-    <string name="STTUsername">689de348-ea10-4693-ae63-4c3aa1c0ce9d</string>-->
-    <string name="STTPassword">jHNrhmqc5rwN</string>
+    <string name="STTUsername">e0ba4eff-68b9-463d-aa23-bdf8aa66bb11</string>-->
+    <string name="STTPassword">nwHpocH6iaQv</string>
 
 
     <!-- TTS credentials -->
-    <string name="TTSUsername">eee4a355-396e-4992-bd83-3d1f71493c02</string>
-    <string name="TTSPassword">ec6KuLqdJRPQ</string>
+    <string name="TTSUsername">7fb0fd5b-80d5-4cdf-9a3f-4b040db2e078</string>
+    <string name="TTSPassword">jjfRYPY4ae5M</string>
 
     <!-- for credentials validation only -->
     <string name="defaultUsername">&lt;username&gt;</string>
@@ -39,5 +39,27 @@
     <string name="ttsItalianPrompt">Consapevole del suo patrimonio spirituale e morale, l\'Unione si fonda sui valori indivisibili e universali della dignità umana, della libertà, dell\'uguaglianza e della solidarietà; essa si basa sul principio della democrazia e sul principio dello Stato di diritto. Pone la persona al centro della sua azione istituendo la cittadinanza dell\'Unione e creando uno spazio di libertà, sicurezza e giustizia.</string>
     <string name="ttsGermanPrompt">In dem Bewusstsein ihres geistig-religiösen und sittlichen Erbes gründet sich die Union auf die unteilbaren und universellen Werte der Würde des Menschen, der Freiheit, der Gleichheit und der Solidarität. Sie beruht auf den Grundsätzen der Demokratie und der Rechtsstaatlichkeit. Sie stellt den Menschen in den Mittelpunkt ihres Handelns, indem sie die Unionsbürgerschaft und einen Raum der Freiheit, der Sicherheit und des Rechts begründet.</string>
     <string name="ttsJapanesePrompt">精神的、そして道徳的な遺産を意識的に受け継いで、人間の尊厳、自由、平等、連帯の不可分で普遍的な価値を大前提として連合は設立される。すなわち、連合は民主主義と法治の原則に立脚する。連合は市民権を確立し、自由と安全、正義が確保された地域を創造することによって、その組織活動の中心に個人を置く。</string>
+    <string name="pattern_lock_title">Pattern lock</string>
+    <string name="pref_title_set_pattern">Set unlock pattern</string>
+    <string name="pref_summary_set_pattern_none">[ No pattern set ]</string>
+    <string name="pref_summary_set_pattern_has">[ Pattern set ]</string>
+    <string name="pref_title_pattern_visible">Make pattern visible</string>
+    <string name="pref_summary_pattern_visible_off">Pattern will be hidden when drawing</string>
+    <string name="pref_summary_pattern_visible_on">Pattern will be visible when drawing</string>
+    <string name="pref_title_clear_pattern">Clear unlock pattern</string>
+    <string name="pref_dialog_message_clear_pattern">Clear unlock pattern?</string>
+    <string name="pattern_cleared">Unlock pattern has been cleared</string>
+
+    <string name="set_pattern_title">Set unlock pattern</string>
+    <string name="confirm_pattern_title">Confirm your unlock pattern</string>
+    <string name="reset_pattern_title">Confirm password to reset pattern</string>
+    <string name="reset_pattern_message">This is only a demo.\n\nPress "OK" to reset your unlock pattern.</string>
+    <string name="pattern_reset">Unlock pattern has been reset</string>
+
+    <string name="about_title">About</string>
+    <string name="about_name">PatternLock</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_credit">Zhang Hai 2016, 2017</string>
+    <string name="about_github"><a href="https://github.com/DreaminginCodeZH/PatternLock">View on GitHub</a></string>
 
 </resources>

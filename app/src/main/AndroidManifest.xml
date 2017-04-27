@@ -23,8 +23,8 @@
         android:theme="@style/AppTheme"
         tools:replace="android:name"
         >
-        <activity android:name=".SplashActiviy"
-            android:screenOrientation="portrait">
+
+        <activity android:name=".SplashActiviy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,6 +55,18 @@
         <activity android:name=".ComposeMailUsingGmail"
             android:screenOrientation="portrait">
         </activity>
+      <!--  <activity android:name=".PatternViewActivity"
+            android:screenOrientation="portrait">
+        </activity>-->
+        <activity android:name=".PatternViewActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".PatternSetActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+
 
 
     </application>
